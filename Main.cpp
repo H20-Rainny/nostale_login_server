@@ -86,11 +86,7 @@ int main()
 			}
 			else
 			{
-				std::string msg = "fail Your ip has been blocked due to repeated login attempts.";
-				msg += 0x0D;
-				msg += "You will be unlocked in a span of 60 seconds.";
-				msg = cryptography->encrypt(msg);
-				send(sock, msg.c_str(), msg.size(), 0);
+				send(sock, msg_block.c_str(), msg_block.size(), 0);
 			}
 		}
 		sock = NULL;
