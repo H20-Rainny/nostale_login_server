@@ -47,7 +47,8 @@ int main()
 	}
 
 	maintenance = false;
-	functions->msg_init(msg_maintenance,msg_case,msg_online,msg_ban);
+	std::string msg_block;
+	functions->msg_init(msg_maintenance,msg_case,msg_online,msg_ban,msg_block);
 
 	WSAData wsa;
 	WSAStartup(0x0201, &wsa);
