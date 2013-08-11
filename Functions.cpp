@@ -23,16 +23,25 @@ bool _functions::AntiSqlInjection(std::string str)
 	return true;
 }
 
-void _functions::msg_init(std::string &msg_maintenance, std::string &msg_case, std::string &msg_online, std::string &msg_ban)
+void _functions::msg_init(std::string &msg_maintenance, std::string &msg_case, std::string &msg_online, std::string &msg_ban, std::string &msg_block)
 {
 	_cryptography *cryptography = new _cryptography();
+	
 	msg_maintenance  = cryptography->encrypt("fail In this moment the server is in maintenance.");
+	
 	msg_case = cryptography->encrypt("fail Enter your data respecting the correct case.");
+	
 	msg_online = cryptography->encrypt("fail This ID is currently in use.");
+	
 	msg_ban = "fail Your account has been banned !";
 	msg_ban += 0x0D;
 	msg_ban += "Please, contact the Team of Game";
 	msg_ban = cryptography->encrypt(msg_ban);
+	
+	msg_block = "fail Your ip has been blocked due to repeated login attempts.";
+	msg_block += 0x0D;
+	msg_block += "You will be unlocked in a span of 60 seconds.";
+	msg_block = cryptography->encrypt(msg_block);
 }
 
 int _functions::random(int start, int end)
